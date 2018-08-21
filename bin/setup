@@ -1,0 +1,49 @@
+#!/usr/bin/env bash
+
+# Verifies that the environment is correctly setup, initializes the database, and runs a few tests
+
+echo "----------------------------------------------------------"
+echo "Checking for Elixir..."
+echo "----------------------------------------------------------"
+command -v elixir >/dev/null 2>&1 || {
+  echo "This app requires Elixir >= 1.5, but it was not found on your system."
+  echo "Install it using the instructions at http://elixir-lang.org"
+  exit 1
+}
+
+version_compare=$(elixir -e 'IO.puts Version.compare(System.version, "1.5.0")')
+if [ $version_compare == 'lt' ]
+then
+  echo "This app requires Elixir 1.5.0 or greater."
+  echo "Install it using the instructions at http://elixir-lang.org"
+  exit 1
+fi
+echo "Done!"
+
+echo "----------------------------------------------------------"
+echo "Ensuring Hex is installed..."
+echo "----------------------------------------------------------"
+mix local.hex --force
+mix local.rebar --force
+echo "Done!"
+
+echo "----------------------------------------------------------"
+echo "Installing Mix dependencies..."
+echo "----------------------------------------------------------"
+mix deps.get || { echo "Mix dependencies could not be installed!"; exit 1; }
+
+
+echo "----------------------------------------------------------"
+echo "Setting up the database..."
+echo "----------------------------------------------------------"
+mix ecto.setup || { echo "Unable to setup the database - please check the settings in config/dev.exs"; exit 1; }
+MIX_ENV=test mix ecto.test_setup || { echo "Unable to setup the test database - please check the settings in config/dev.exs"; exit 1; }
+
+echo "----------------------------------------------------------"
+echo "Verifying the database configuration..."
+echo "----------------------------------------------------------"
+mix test --only setup_test || { echo "Database tests failed - please see the output for error messages"; exit 1; }
+
+echo "----------------------------------------------------------"
+echo "Setup complete - everything looks good! 👍"
+echo "----------------------------------------------------------"
