@@ -3,7 +3,7 @@ defmodule MusicDB.Repo do
 
   def count(table_name) do
     # add the code needed to return the number of records in the given table
-    aggregate(table_name, :count, :id)
+
   end
 
 end
