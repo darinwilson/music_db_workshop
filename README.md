@@ -9,6 +9,15 @@ A playground for experimenting with Ecto.
    * Elixir >= 1.5 (1.7 recommended)
    * PostgreSQL >= 9.0 (MySQL or SQLite may work - see "Other Databases" below)
 
+### Database Configuration
+
+By default, the app will attempt to connect to the database using your system username and an empty password. If your database needs different credentials, you'll need to set up the following environment variables:
+
+```bash
+export DATABASE_USERNAME=[your username]
+export DATABASE_PASSWORD=[your password]
+```
+
 ### Setup
 
 Clone the repo, then run:
@@ -25,15 +34,6 @@ If all goes well, you'll see this at the end:
 Setup complete - everything looks good! 👍
 ```
 
-## Database Configuration
-
-By default, the app will attempt to connect to the database using your system username as the username and an empty password. If your database needs different credentials, you'll need to set up the following environment variables before running `bin/setup`:
-
-```bash
-export DATABASE_USERNAME=[your username]
-export DATABASE_PASSWORD=[your password]
-```
-
 ## Other Databases
 
 This is app has been tested with PostgreSQL, but other databases supported by Ecto may work. If you want to use a different database, you'll need to:
@@ -43,3 +43,8 @@ This is app has been tested with PostgreSQL, but other databases supported by Ec
 
 See the [Ecto README](https://github.com/elixir-ecto/ecto) for a list of supported adapters and driver dependencies.
 
+## Data Model
+
+This app sets up four schemas: `Artist`, `Album`, `Track`, and `Genre.` To help keep things simple, they're fairly stripped down, and have a minimal configuration. See the corresponding modules for details.
+
+As you might expect, Artist `has_many` Albums, which `has_many` Tracks. Albums has a `many_to_many` relationship with Genres.
