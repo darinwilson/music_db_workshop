@@ -48,3 +48,5 @@ See the [Ecto README](https://github.com/elixir-ecto/ecto) for a list of support
 This app sets up four schemas: `Artist`, `Album`, `Track`, and `Genre.` To help keep things simple, they're fairly stripped down, and have a minimal configuration. See the corresponding modules for details.
 
 As you might expect, Artist `has_many` Albums, which `has_many` Tracks. Albums has a `many_to_many` relationship with Genres.
+
+![data model](https://github.com/darinwilson/music_db_workshop/blob/master/music_db_data_model.png)
