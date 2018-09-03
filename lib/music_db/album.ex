@@ -1,7 +1,7 @@
 defmodule MusicDB.Album do
   use Ecto.Schema
   import Ecto.Changeset
-  alias MusicDB.{Artist, Track, Genre}
+  alias MusicDB.{Artist, Track, Genre, Release}
 
   schema "albums" do
     field(:title, :string)

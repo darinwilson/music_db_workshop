@@ -1,0 +1,4 @@
+#!/bin/bash
+
+mix test test/music_db/exercises/association_exercises_test.exs
+
