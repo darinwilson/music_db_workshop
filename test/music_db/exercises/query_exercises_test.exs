@@ -80,4 +80,31 @@ defmodule QueryExercisesTest do
     QueryExercises.find_and_delete_track!("Flamenco Sketches")
     refute Repo.get_by(Track, title: "Flamenco Sketches")
   end
+
+  test "orders artists by name desc" do
+    artists =
+      for n <- 1..9 do
+        Repo.insert!(%Artist{name: "#{n}"})
+      end
+
+    artist_names = Enum.map(artists, & &1.name)
+
+    ordered_artist_names =
+      QueryExercises.order_artists_by_name()
+      |> List.flatten()
+
+    assert Enum.reverse(artist_names) == ordered_artist_names
+  end
+
+  test "finding an album's duration using group_by" do
+    album = Repo.insert!(%Album{title: "Heartbeat"})
+
+    for n <- 1..10 do
+      Repo.insert!(%Track{title: "Theme #{n}", duration: n * 10, album_id: album.id, index: n})
+    end
+
+    result = QueryExercises.group_album_duration()
+
+    assert result == [[album.id, 550]]
+  end
 end
