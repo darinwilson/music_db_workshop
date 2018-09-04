@@ -37,18 +37,10 @@ defmodule MusicDB.Exercises.QueryExercises do
 
   def order_artists_by_name do
     # Select all artists and use `order_by:` to order them by name desc.
-
-    query = from(a in "artists", select: [a.name], order_by: [desc: a.name])
-
-    Repo.all(query)
   end
 
   def group_album_duration do
     # Query tracks and select the album_id and use sum to calculate the duration, then
     # group by album_id.
-
-    query = from(t in "tracks", select: [t.album_id, sum(t.duration)], group_by: t.album_id)
-
-    Repo.all(query)
   end
 end

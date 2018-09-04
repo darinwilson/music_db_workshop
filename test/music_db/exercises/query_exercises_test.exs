@@ -81,6 +81,7 @@ defmodule QueryExercisesTest do
     refute Repo.get_by(Track, title: "Flamenco Sketches")
   end
 
+  @tag :skip
   test "orders artists by name desc" do
     artists =
       for n <- 1..9 do
@@ -96,6 +97,7 @@ defmodule QueryExercisesTest do
     assert Enum.reverse(artist_names) == ordered_artist_names
   end
 
+  @tag :skip
   test "finding an album's duration using group_by" do
     album = Repo.insert!(%Album{title: "Heartbeat"})
 
