@@ -1,0 +1,3 @@
+#!/bin/bash
+
+mix test test/music_db/exercises/query_exercises_test.exs
