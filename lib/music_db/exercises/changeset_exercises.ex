@@ -4,7 +4,7 @@ defmodule MusicDB.Exercises.ChangesetExercises do
 
   def create_changeset_for_artist(artist) do
     # create a changeset for the given Artist struct - your changeset should set
-    # the name to "Sarah Vaughn"
+    # the name to "Sarah Vaughan"
 
   end
 

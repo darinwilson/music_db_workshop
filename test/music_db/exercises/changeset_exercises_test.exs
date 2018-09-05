@@ -5,7 +5,7 @@ defmodule ChangesetExercisesTest do
 
   test "create a changeset from an Artist struct" do
     changeset = ChangesetExercises.create_changeset_from_artist(%Artist{})
-    assert changeset.changes == %{name: "Sarah Vaughn"}
+    assert changeset.changes == %{name: "Sarah Vaughan"}
   end
 
   test "create a changeset from a map" do
