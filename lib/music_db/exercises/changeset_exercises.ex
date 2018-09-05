@@ -43,7 +43,7 @@ defmodule MusicDB.Exercises.ChangesetExercises do
     # as the child album records for the artist.
     #
     # Note that you will need to preload the album records for the artist struct before
-    # attempting to call put_assoc
+    # attempting to call cast_assoc
 
   end
 
