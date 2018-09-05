@@ -17,11 +17,6 @@ defmodule MusicDB.Exercises.RepoExercises do
 
   end
 
-  def count_artist_records do
-    # use Repo.aggregate to return the num
-
-  end
-
   def insert_a_single_record_and_return_the_id do
     # use Repo.insert_all to insert a single record (you can use any name), but use the
     # :returning option so that the return value of insert_all includes the id of the

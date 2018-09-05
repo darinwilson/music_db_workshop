@@ -24,12 +24,6 @@ defmodule RepoExercisesTest do
   end
 
   @tag :skip
-  test "count records in a table" do
-    RepoExercises.insert_multiple_records()
-    assert RepoExercises.count_artist_records() == 2
-  end
-
-  @tag :skip
   test "add a custom function to MusicDB.Repo that counts records in a table" do
     RepoExercises.insert_multiple_records()
     assert Repo.count("artists") == 2
