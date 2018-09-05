@@ -16,7 +16,7 @@ defmodule MusicDB.Exercises.ChangesetExercises do
 
   def changeset_for_track(track, params) do
     # create a changeset using the given %Track{} struct and params. Your changeset should
-    # do the following:
+    # use cast() and do the following:
     #   - allow only the title and duration values
     #   - require title and duration values
     #   - require that the duration value be greater than 0

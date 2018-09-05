@@ -13,4 +13,5 @@ defmodule MusicDB.Track do
     belongs_to(:album, Album)
 
   end
+
 end
