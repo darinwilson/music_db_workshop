@@ -15,6 +15,7 @@ defmodule MusicDB.Exercises.QueryExercises do
 
   def find_artist_by_name(name) do
     # Define a query that finds an artist by the name passed to this function.
+    # Then use Repo.all to fetch the record with that query.
   end
 
   def search_tracks(title) do
