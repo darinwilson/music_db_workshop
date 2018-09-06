@@ -10,7 +10,7 @@ defmodule QueryExercisesTest do
   }
 
   @tag :skip
-  test "fetch the artist with the id of 1" do
+  test "fetch the artist with the name of 'Taylor Swift'" do
     Repo.insert!(%Artist{name: "Taylor Swift"})
 
     [artist] = QueryExercises.simplest_query()
@@ -18,7 +18,7 @@ defmodule QueryExercisesTest do
   end
 
   @tag :skip
-  test "return the raw sql for a query that selects all artist names" do
+  test "return the raw sql for a query that selects all artist birth dates" do
     sql = QueryExercises.inspect_sql()
     assert sql == {"SELECT a0.\"birth_date\" FROM \"artists\" AS a0", []}
   end
