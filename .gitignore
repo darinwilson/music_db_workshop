@@ -23,6 +23,3 @@ erl_crash.dump
 music_db-*.tar
 
 .DS_Store
-
-# Ignore local directory with exercise solutions
-solutions/
