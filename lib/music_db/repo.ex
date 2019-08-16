@@ -1,5 +1,7 @@
 defmodule MusicDB.Repo do
-  use Ecto.Repo, otp_app: :music_db
+  use Ecto.Repo,
+    otp_app: :music_db,
+    adapter: Ecto.Adapters.Postgres
 
   def max_id(table_name) do
     aggregate(table_name, :max, :id)
