@@ -6,7 +6,7 @@ A playground for experimenting with Ecto.
 
 ### Prerequisites
 
-   * Elixir >= 1.5 (1.7 recommended)
+   * Elixir >= 1.5 (1.9 recommended)
    * PostgreSQL >= 9.0 (MySQL or SQLite may work - see "Other Databases" below)
 
 ### Database Configuration
