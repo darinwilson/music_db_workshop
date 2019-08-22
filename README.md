@@ -39,7 +39,7 @@ Setup complete - everything looks good! 👍
 This is app has been tested with PostgreSQL, but other databases supported by Ecto may work. If you want to use a different database, you'll need to:
 
    1. Add the database driver as a dependency in the `deps` function in `mix.exs`
-   1. Change the `adapter` setting in `config/dev.exs` and `config/test.exs`
+   1. Change the `adapter` setting in `lib/music_db/repo.ex`
 
 See the [Ecto README](https://github.com/elixir-ecto/ecto) for a list of supported adapters and driver dependencies.
 
