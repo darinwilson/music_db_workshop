@@ -13,7 +13,8 @@ defmodule SchemaExercisesTest do
   test "convert schema-less query" do
     artists =
       for n <- 1..5 do
-        Repo.insert!(%Artist{name: "n", birth_date: Ecto.Date.cast!("1990-11-1#{n}")})
+        {:ok, date} = Date.new(1990, 11, 10 + n)
+        Repo.insert!(%Artist{name: "n", birth_date: date})
       end
 
     [artist] = SchemaExercises.convert_schema_less_query()
