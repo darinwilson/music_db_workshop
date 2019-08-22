@@ -1,10 +1,8 @@
 alias MusicDB.Repo
 alias MusicDB.{Artist, Album, Track, Genre}
 
-jazz_genre = Repo.insert!(%Genre{ name: "jazz", wiki_tag: "Jazz" }, on_conflict: :replace_all_except_primary_key,
-  conflict_target: :name)
-live_genre = Repo.insert!(%Genre{ name: "live", wiki_tag: "Concert" }, on_conflict: :replace_all_except_primary_key,
-  conflict_target: :name)
+jazz_genre = Repo.insert!(%Genre{ name: "jazz", wiki_tag: "Jazz" })
+live_genre = Repo.insert!(%Genre{ name: "live", wiki_tag: "Concert" })
 
 Repo.insert! %Artist{
   name: "Miles Davis",
